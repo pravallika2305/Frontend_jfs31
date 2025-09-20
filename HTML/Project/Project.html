@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10%;
+            height: 70px;
+            position: sticky;
+            background-color: red;
+            color: white;
+            top: 0;
+            font-size: 20px;
+        }
+
+        .logo{
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .nav-links{
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a{
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+    
+        ul{
+            display: flex;
+            gap: 30px;
+        }
+
+        .user-actions a{
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+
+        #home{
+            background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),url("https://source.unsplash.com/1600x600/?cinema,movie") center/cover no-repeat;
+            height:80vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+        }
+        #home p {
+            font-size:20px;
+            margin-bottom:30px;
+        }
+        .search-box input {
+            padding:12px;
+            width:300px;
+            border:none;
+            border-radius:6px;
+            margin-right:10px;
+        }
+        .search-box button {
+            padding:12px 20px;
+            border:none;
+            border-radius:6px;
+            background:#ff9800;
+            color:white;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        #movies{
+            padding: 60px 10%;
+            text-align: center;
+        }
+        #movies h1{
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+        .movie-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+            gap: 20px;
+        }
+        .movie-card{
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+        .movie-card img{
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .movie-card h3{
+            padding: 10px;
+        }
+        .movie-card button{
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #e50914;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #services {
+            padding:60px 10%;
+            text-align:center;
+        }
+        #services h1{
+            margin-bottom:30px;
+            font-size:36px;
+        }
+        .services-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+        }
+       .service-card {
+            background:#f4f4f4;
+            padding:20px;
+            border-radius:10px;
+            transition:0.3s;
+        }
+        .service-card:hover {
+            background:#e50914;
+            color:white;
+            transform:scale(1.05);
+        }
+        .service-card i {
+            font-size:40px;
+            margin-bottom:15px;
+            color:#e50914;
+        }
+
+        #about{
+            padding: 60px 10%;
+            background: white;
+            text-align: center;
+        }
+        #about h1{
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+        #about p{
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        #contact {
+            padding:60px 10%;
+            background:#fafafa;
+            text-align:center;
+        }
+        #contact h1{
+            margin-bottom:20px;
+            font-size:36px;
+        }
+        .contact-form {
+            max-width:500px;
+            margin:auto;
+            text-align:left;
+        }
+        .contact-form input,.contact-form textarea {
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:16px;
+        }
+        .contact-form button {
+            background:#e50914;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            font-size:16px;
+            border-radius:6px;
+            cursor:pointer;
+        }
+        footer{
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        footer a{
+            color: #e50914;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <div class="logo">Movie Tickets</div>
+            <li><a href="">Home</a></li>
+            <li><a href="">Movies</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contacts</a></li>
+        </ul>
+        <div class="user-actions">
+            <a href=""><i class="fa-solid fa-user"></i></a>
+            <a href="">Login / SignUp</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <h1>Book Your Favourite Movies</h1>
+        <p>Find shows, events, and experiences near you</p>
+        <div class="search-box"> 
+            <input type="text" placeholder="Search of Movies or Events">
+            <button>Search</button>
+        </div>
+    </section>
+
+    <section id="movies">
+        <h1>Now Showing</h1>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="littlehearts-posterart.jpg" alt="Little Hearts">
+                <h3>Little Hearts</h3>
+                <button>Book Now</button>
+            </div>
+            <div class="movie-card">
+                <img src="Mirai.jpg" alt="Mirai">
+                <h3>Mirai</h3>
+                <button>Book Now</button>
+            </div>
+            <div class="movie-card">
+                <img src="Mahavatar.jpg" alt="Mahavatar Narsimha">
+                <h3>Mahavatar Narsimha</h3>
+                <button>Book Now</button>
+            </div>
+            <div class="movie-card">
+                <img src="OG_Poster.jpg" alt="OG">
+                <h3>OG</h3>
+                <button>Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h1>Our Servies</h1>
+        <div class="sevice-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-ticket"></i>
+                <h3>Movie Tickets</h3>
+                <p>Book tickets for the latest movies in theatres near you.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-music"></i>
+                <h3>Live Events</h3>
+                <p>Concerts, stand-up shows, sports events and more.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-film"></i>
+                <h3>Online Streaming</h3>
+                <p>Watch movies and shows from the comfort of your home.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-gift"></i>
+                <h3>Offers & Rewards</h3>
+                <p>Exclusive discounts, coupons, and cashback deals.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h1>About Us</h1>
+        <p> This is the website helps which helps you to book tickets online for movies or any events easily.</p>
+    </section>
+
+    <section id="contact">
+        <h1>Contact Us</h1>
+        <div class="contact-form">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea rows="5" placeholder="Your Message"></textarea>
+          <button type="submit">Send Message</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 BookMyShow Clone. All rights reserved.</p>
+        <p>
+            <a href="">Privacy Policy</a> |
+            <a href="">Terms & Conditions</a>
+        </p>
+    </footer>
+</body>
+</html>
