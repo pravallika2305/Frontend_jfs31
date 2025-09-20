@@ -1,11 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Landing Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h3>Hello World</h3>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">ShopEasy</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item">
+            <button class="btn btn-outline-light ms-2" data-bs-toggle="modal" data-bs-target="#cartModal">
+              🛒 Cart (<span id="cart-count">0</span>)
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-light text-center py-5">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Welcome to ShopEasy</h1>
+      <p class="lead">Your one-stop shop for the latest products at the best prices.</p>
+      <a href="#products" class="btn btn-primary btn-lg">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <section id="products" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 fw-bold">Featured Products</h2>
+      <div class="row g-4">
+
+        <!-- Product 1 -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Smartphone">
+            <div class="card-body text-center">
+              <h5 class="card-title">Smartphone</h5>
+              <p class="card-text">Latest model with amazing features and sleek design.</p>
+              <p class="fw-bold">$499</p>
+              <button class="btn btn-success add-to-cart" data-name="Smartphone" data-price="499">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Headphones">
+            <div class="card-body text-center">
+              <h5 class="card-title">Wireless Headphones</h5>
+              <p class="card-text">Noise-cancelling headphones with high-quality sound.</p>
+              <p class="fw-bold">$199</p>
+              <button class="btn btn-success add-to-cart" data-name="Wireless Headphones" data-price="199">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Smart Watch">
+            <div class="card-body text-center">
+              <h5 class="card-title">Smart Watch</h5>
+              <p class="card-text">Track fitness, monitor health, and stay connected.</p>
+              <p class="fw-bold">$149</p>
+              <button class="btn btn-success add-to-cart" data-name="Smart Watch" data-price="149">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 fw-bold">Our Pricing Plans</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm">
+            <div class="card-header bg-primary text-white">Basic</div>
+            <div class="card-body">
+              <h3 class="card-title">$9.99/month</h3>
+              <p class="card-text">Access to selected products and discounts.</p>
+              <a href="#" class="btn btn-outline-primary">Choose Plan</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm border-primary">
+            <div class="card-header bg-success text-white">Standard</div>
+            <div class="card-body">
+              <h3 class="card-title">$19.99/month</h3>
+              <p class="card-text">Includes all basic benefits plus free shipping.</p>
+              <a href="#" class="btn btn-outline-success">Choose Plan</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card text-center shadow-sm">
+            <div class="card-header bg-dark text-white">Premium</div>
+            <div class="card-body">
+              <h3 class="card-title">$29.99/month</h3>
+              <p class="card-text">All features + exclusive deals & priority support.</p>
+              <a href="#" class="btn btn-outline-dark">Choose Plan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light text-center py-3">
+    <p class="mb-0">&copy; 2025 ShopEasy. All rights reserved.</p>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Shopping Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="cart-items" class="list-group mb-3"></ul>
+          <h5 class="text-end">Total: $<span id="cart-total">0</span></h5>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-primary">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Cart Script -->
+  <script>
+    let cart = [];
+    const cartCount = document.getElementById("cart-count");
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", () => {
+        const name = button.getAttribute("data-name");
+        const price = parseFloat(button.getAttribute("data-price"));
+
+        cart.push({ name, price });
+        updateCart();
+      });
+    });
+
+    function updateCart() {
+      cartItems.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        const li = document.createElement("li");
+        li.className = "list-group-item d-flex justify-content-between align-items-center";
+        li.innerHTML = `${item.name} - $${item.price} 
+                        <button class="btn btn-sm btn-danger" onclick="removeItem(${index})">Remove</button>`;
+        cartItems.appendChild(li);
+      });
+
+      cartCount.textContent = cart.length;
+      cartTotal.textContent = total.toFixed(2);
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+  </script>
 </body>
 </html>
